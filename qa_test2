@@ -1,0 +1,11 @@
+import csv
+import json
+
+csvfile = open('top_linux.csv', 'r')
+jsonfile = open('file.json', 'w')
+
+fieldnames = ("PID","USER","PR","NI", "VIRT", "RES", "SHR", "S", "%CPU", "%MEM", "TIME", "COMMAND")
+reader = csv.DictReader(csvfile, fieldnames)
+for row in reader:
+    json.dump(row, jsonfile)
+    jsonfile.write('\n')
